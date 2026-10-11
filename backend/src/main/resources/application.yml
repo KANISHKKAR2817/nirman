@@ -1,0 +1,46 @@
+server:
+  port: 8080
+  servlet:
+    context-path: /
+
+spring:
+  application:
+    name: nirman-backend
+  profiles:
+    active: dev
+  jpa:
+    open-in-view: true
+    show-sql: false
+    properties:
+      hibernate:
+        format_sql: false
+        dialect: org.hibernate.dialect.H2Dialect
+
+# NIRMAN App Configuration
+nirman:
+  jwt:
+    secret: 404E635266556A586E3272357538782F413F4428472B4B6250645367566B5970
+    expiration-ms: 86400000 # 24 hours
+  cors:
+    allowed-origins: "http://localhost:5173,http://localhost:3000,http://127.0.0.1:5173"
+  risk:
+    weights:
+      schedule: 0.40
+      resource: 0.35
+      safety: 0.25
+    thresholds:
+      low: 25.0
+      moderate: 50.0
+      high: 75.0
+
+# Actuator & OpenAPI
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,metrics
+springdoc:
+  api-docs:
+    path: /v3/api-docs
+  swagger-ui:
+    path: /swagger-ui.html

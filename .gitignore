@@ -1,0 +1,15 @@
+# NIRMAN .gitignore
+.DS_Store
+*.log
+node_modules/
+dist/
+target/
+.mvn/
+*.class
+*.jar
+.idea/
+.vscode/
+*.iml
+.env
+nirman-h2.mv.db
+nirman-h2.trace.db

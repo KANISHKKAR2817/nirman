@@ -1,0 +1,12 @@
+package com.nirman.repository;
+
+import com.nirman.entity.SimulationScenario;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+
+import java.util.List;
+
+@Repository
+public interface SimulationScenarioRepository extends JpaRepository<SimulationScenario, Long> {
+    List<SimulationScenario> findByProjectId(Long projectId);
+}
